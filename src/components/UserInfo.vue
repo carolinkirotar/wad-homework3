@@ -1,18 +1,15 @@
 <template>
-  <div v-for="(user, index) in user" :key="index">
-    <img :src="user.avatar" alt="user.name">
     <div class="drop-down-container">
       <span>{{user.name}}</span>
       <span>{{user.email}}</span>
       <span class="separator"></span>
       <span>
-        <div @click="navigateToBrowsePage"> Browse </div>
+        <a href="" @click="navigateToBrowsePage"> Browse </a>
       </span>
       <span class="separator"></span>
       <span>
-        <div @click="navigateToLoginPage"> Log Out </div>
+        <a href="" @click="navigateToLoginPage"> Log Out </a>
       </span>
-    </div>
     </div>
 </template>
 

@@ -1,10 +1,20 @@
 <template>
   <div id="app">
+    <LogIn></LogIn>
     <router-view></router-view>
   </div>
 </template>
 
-<script></script>
+<script>
+import LogIn from "@/components/LogIn";
+
+export default {
+  name: 'App',
+  components: {
+    LogIn
+  }
+}
+</script>
 
 <style>
   * {

@@ -13,7 +13,7 @@
         <h4>Or</h4>
       </div>
         <h3>Please Log In</h3>
-        <form action="index.html" method="post">
+        <form method="post">
           <div>
             <input type="text" name="email" placeholder="Email">
           </div>
@@ -21,7 +21,7 @@
             <input type="password" name="password" placeholder="Password">
           </div>
           <div>
-            <button class="button" type="submit" name="login">Log In</button>
+            <button class="button" type="submit" name="login" @click="navigateToHomePage">Log In</button>
           </div>
           <div>
             <small>
@@ -38,14 +38,8 @@
   export default {
       name: 'Login',
       methods: {
-        SignIn: function() {
-            this.login.push(new LoginUser(this.username, this.password))
-        },
-        data: function () {
-          return {
-            username: " ",
-            password: " "
-          }
+        navigateToHomePage: function () {
+          return this.$router.push(`/`)
         }
       }
   }
@@ -54,7 +48,6 @@
 </script>
 
 <style>
-
 .login-page {
   width: 100%;
   height: 100%;

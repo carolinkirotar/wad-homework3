@@ -1,5 +1,6 @@
 <template>
-  <button :class="{'like-button' : !selected, 'like-button liked' : selected}" @click="toggleItem">
+  <button :class="{'like-button' : !selected, 'like-button liked' : selected}"
+          @click="toggleItem">
     <span v-if="!selected"> {{post.likes}}likes </span>
     <span v-if="selected"> {{post.likes}}likes </span>
   </button>

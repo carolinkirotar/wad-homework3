@@ -7,24 +7,40 @@
       <input type="text" name="search"><button type="button">Search</button>
     </div>
     <div class="avatar-container">
-      <div v-for="(user, index) in user" :key="index">
-        <img :src="user.avatar" @click="openUserInfo">
+      <img :src="user.avatar" @click="toggle">
+      <div v-show="isOpen">
+          <!--- siin võiks avada selle drop-down menu -->
       </div>
     </div>
   </nav>
 </template>
 
 <script>
-import UserInfo from "./UserInfo";
 
 export default {
   name: 'Header',
-  components: {
-    UserInfo
+  data: function () {
+    return {
+      isOpen: false,
+    }
   },
   methods: {
     openUserInfo: function () {
       return this.$router.push(`/UserInfo`)
+    },
+    toggle: function () {
+      this.isOpen = !this.isOpen;
+    },
+    show: function () {
+      this.isOpen = true;
+    },
+    hide: function () {
+      this.isOpen = false;
+    }
+  },
+  computed: {
+    user: function () {
+      return this.$store.state.user;
     }
   }
 }

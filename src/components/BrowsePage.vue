@@ -1,12 +1,11 @@
 <template>
     <Header />
-    <UserInfo></UserInfo>
     <section class="main-container">
     <div class="profile">
       <div v-for="(profile, index) in profiles" :key="index">
         <img :src="profile.avatar">
         <h2>{{profile.name}}</h2>
-        <FollowButton :index="index" :toggle-item="toggleItem"/>
+        <FollowButton :index="index"/>
       </div>
     </div>
     </section>
@@ -15,22 +14,15 @@
 <script>
 import FollowButton from "./FollowButton";
 import Header from "./Header";
-import UserInfo from "./UserInfo";
 
 export default {
   name: 'BrowsePage',
   components: {
-      UserInfo,
       FollowButton,
       Header
   },
-  props: {
-    toggleItem: Function,
-  },
+
   computed: {
-    user: function () {
-      return this.$store.state.user
-    },
     profiles: function () {
       return this.$store.state.profiles
     },

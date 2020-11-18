@@ -1,5 +1,6 @@
 <template>
-  <button :class="{'follow-button' : !selected, 'follow-button followed' : selected}" @click="toggleItem">
+  <button v-bind:class="{'follow-button' : !selected, 'follow-button followed' : selected}"
+          @click="selected = !selected">
     <span v-if="!selected"> Follow </span>
     <span v-if="selected"> Followed </span>
   </button>
@@ -8,18 +9,10 @@
 <script>
   export default {
     name: 'FollowButton',
-    computed: {
-      selected: function () {
-        return this.$store.getters.itemIsSelected(this.index)
-      }
-    },
-    props: {
-      index: Number,
-    },
-    methods: {
-      toggleItem: function () {
-        this.$store.commit('toggleItem', this.index)
-      }
+    data: function () {
+        return {
+          selected: false
+        }
     }
   }
 </script>
